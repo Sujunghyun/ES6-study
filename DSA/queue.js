@@ -38,6 +38,7 @@ function Queue() {
     };
 }
 
+
 /* 예제 01 */
 
 // let queue = new Queue();
@@ -116,3 +117,28 @@ function Queue() {
 
 
 /* 예제 03 */
+
+/* 환형 큐. ex) 폭탄돌리기 게임. 원으로 서서 폭탄을 차례로 돌리다가 동작을 멈췄을때 폭탄을 들고있는 사람이 벌칙을 받는 것. */ 
+
+function bomb (nameList, num) {
+    
+    let queue = new Queue();    // 03-1. Queue 인스턴스 생성
+
+    for (let i=0; i<nameList.length; i++) {
+        queue.enqueue(nameList[i]);     // 03-2. 게임 참가자 전원의 이름을 배열로 읽어들여 큐에 추가한다. 
+    }
+
+    let eliminated = '';
+    while (queue.size() > 1) {      // 03-5. 큐의 크기가 1보다 크면 계속 반복. 즉, 1명만 남을 때까지 반복한다.
+        for (let i=0; i<num; i++) {
+            queue.enqueue(queue.dequeue());     // 03-3. 맨 앞의 원소를 꺼내 맨 끝에 다시 넣는다. 이것을 지정한 num(횟수)만큼 반복한다.
+        }
+        eliminated = queue.dequeue();       // 03-4. 반복이 끝나면, 폭탄을 들고있는 사람을 퇴장시킨다. (반복이 끝났을 때 꺼내진 원소를 제거한다.)
+        console.log(eliminated + '(을)를 폭탄돌리기 게임에서 퇴장시킵니다.');
+    }
+    return queue.dequeue();     // 03-6. 마지막 남은 사람(승자)을 반환한다.
+}
+
+let names = ['SJH', 'Camila', 'Ingrid', 'Carry', 'Jane'];
+let winner = bomb(names, 7);   // 호출. 
+console.log('The winner is ' + winner + '!!!');
