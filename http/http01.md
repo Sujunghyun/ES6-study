@@ -17,7 +17,7 @@
 >		- 첫 번째 부분은 scheme이라고 불리며, 리소스에 접근하기 위한 프로토콜을 서술한다. 보통 HTTP 프로토콜(http://) 이다.
 >		- 두 번째 부분은 서버의 인터넷 주소를 제공한다. (예: www.naver.com)
 >		- 마지막은 웹 서버의 리소스를 가리킨다. (예: /schedule/identifier)
->	+ URN(uniform resource name)은 콘텐츠를 이루는 한 리소스에 대해, 그 리소스의 위치에 영향 받지 않는 유일한 이름 역할을 한다. 
+>	+ URN(uniform resource name)은 리소스가 옮겨지더라도 항삭 리소스를 가리킬 수 있는 이름을 제공한다.
 <br><br>
 
 > ### 트랜잭션
